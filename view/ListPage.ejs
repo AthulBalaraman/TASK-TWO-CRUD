@@ -1,0 +1,73 @@
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <a href="/addForm" class="btn btn-success w-25 m-5">ADD FORM</a>
+      </div>
+      <div class="row">
+        <table class="table table-striped table-dark">
+          <thead>
+            
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">TITLE</th>
+              <th scope="col">CATEGORY</th>
+              <th scope="col">Image</th>
+              <th scope="col">PAID OR FREE</th>
+              <th scope="col">EDIT</th>
+              <th scope="col">DELETE</th>
+            </tr>
+           
+          </thead>
+          <tbody>
+            <% for(var i=0; i<formData.length; i++){ %>
+            <tr>
+              <th scope="row"><%= i+1 %></th>
+              <td><%= formData[i].title %></td>
+              <td><%= formData[i].category %></td>
+              <td><img src="/images/<%= formData[i].formPicture %>" alt="" width="30px" height="30px"></td>
+              <td><%= formData[i].sale %></td>
+              <td><a href="/editForm?id=<%= formData[i]._id %>" class="btn btn-secondary">EDIT</a></td>
+              <td><button onclick="deleteForm('<%= formData[i]._id %>')" class="btn btn-danger">DELETE</button></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+ 
+
+
+    <script>
+      
+function deleteForm(formId){
+  swal({
+  title: "DELETE",
+  text: "DO YOU WANT TO DELETE THIS FORM",
+  icon: "warning",
+  buttons: ["CANCEL","OK"],
+}).then(val=>{
+  if(val)
+  {
+    
+    fetch('/deleteForm?id='+formId,
+    {
+      method:'delete'
+
+    }).then(
+      swal({
+        title: "SUCCESS",
+       text: "FORM SUCCESSFULLY DELETED",
+       icon: "success",
+       button:"OK"
+       
+    }).then(val=>{
+      location.reload()
+    })
+    )
+  }
+})
+}
+    </script>
+  >

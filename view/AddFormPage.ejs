@@ -1,0 +1,121 @@
+<body class="bg-dark">
+  <form action="/addForm" method="POST" enctype="multipart/form-data">
+    <div class="container mt-5 d-flex justify-content-center">
+      <div class="container-fluid mt-5">
+        <div class="row d-flex justify-content-center m-3">
+          <h1 class="text-white">ADD FORM PAGE</h1>
+        </div>
+        <div class="row">
+          <div class="input-group mt-3 w-50">
+            <span class="input-group-text" id="inputGroup-sizing-default"
+              >TITLE</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              name="title"
+              required
+            />
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="input-group w-50">
+            <span class="input-group-text">DESCRIPTION</span>
+            <textarea
+              class="form-control"
+              aria-label="With textarea"
+              name="description"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-group mb-3 w-25">
+            <input
+              type="file"
+              class="form-control"
+              id="formPicture"
+              value=""
+              name="formPicture"
+              required
+            />
+          </div>
+          <select
+            class="form-select w-25"
+            aria-label="Default select example"
+            name="category"
+            required
+          >
+            <option selected>Select Category</option>
+            <option value="People" name="category">People</option>
+            <option value="Tech" name="category">Tech</option>
+            <option value="Entertainment" name="category">Entertainment</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="form-check">
+            <div style="cursor: pointer;" onclick="showSubmenu()">
+              <input
+              class="form-check-input"
+              type="radio"
+              name="sale"
+              id="yes-radio"
+              value="yes"
+            />
+            <label class="form-check-label text-white" for="yes-radio">
+              Yes
+            </label>
+            </div>
+            <div
+              class="input-group w-25"
+              id="price-input"
+              style="display: none"
+            >
+              <input
+              style="width: 100%;"
+                type="number"
+                class="form-control"
+                aria-label="Price"
+                name="price"
+                id="price"
+                placeholder="Enter the price"
+              />
+            </div>
+          </div>
+          <div class="form-check" onclick="hideSubmenu()">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="sale"
+              id="no-radio"
+              value="free"
+              checked
+            />
+            <label class="form-check-label text-white" for="no-radio">
+              No
+            </label>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="acceptTerms"
+              required
+            />
+            <label class="form-check-label text-white" for="acceptTerms">
+              I accept the <a href="#">Terms and Conditions</a>
+            </label>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <button class="btn btn-success w-25" type="submit">SUBMIT</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
